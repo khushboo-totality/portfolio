@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="grain">
-        <Preloader />
+        {/* <Preloader /> */}
         {children}
       </body>
     </html>

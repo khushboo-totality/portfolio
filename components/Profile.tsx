@@ -5,7 +5,7 @@ import Marquee from "./Marquee";
 
 /** Top of the left pane: identity, intro, availability, CTA, skills ticker. */
 export default function Profile() {
-  const d = 1.9; // start after preloader
+  const d = 0.2; // small lead-in on first paint
   return (
     <section className="px-5 pb-10 pt-5 md:px-8 lg:px-6">
       <FadeUp delay={d} y={16} className="flex items-center gap-4">
@@ -19,9 +19,9 @@ export default function Profile() {
       </FadeUp>
 
       <h1 className="mt-10 text-[22px] font-medium leading-[1.25] tracking-tight md:text-2xl">
-        <SplitText text="I build fast, reliable systems for the web" delay={d + 0.15} stagger={0.025} />{" "}
-        <SplitText text="— data-heavy backends, APIs and the interfaces on top —" delay={d + 0.35} stagger={0.025} className="font-serif italic text-mute" />{" "}
-        <SplitText text="with a bias for clarity and calm engineering." delay={d + 0.55} stagger={0.025} />
+        <SplitText text={site.headline[0]} delay={d + 0.15} stagger={0.025} />{" "}
+        <SplitText text={site.headline[1]} delay={d + 0.35} stagger={0.025} className="font-serif italic text-mute" />{" "}
+        <SplitText text={site.headline[2]} delay={d + 0.55} stagger={0.025} />
       </h1>
 
       <FadeUp delay={d + 0.8} y={12} className="mt-8 flex items-center gap-2.5 text-sm text-mute">

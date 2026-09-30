@@ -20,13 +20,10 @@ export default function Details() {
     <div>
       <Block title="About">
         <FadeUp>
-          <p className="max-w-md text-mute">
-            I&apos;m a backend-focused engineer in Mumbai. I like turning messy data and fragile
-            processes into systems teams can trust — and making them feel fast for the people using them.
-          </p>
+          <p className="max-w-md text-mute">{site.about}</p>
         </FadeUp>
         <div className="mt-8 grid grid-cols-3 gap-4">
-          {[["4.5+", "years building"], ["20+", "shipped projects"], ["3", "time zones served"]].map(([n, l], i) => (
+          {site.stats.map(([n, l], i) => (
             <FadeUp key={l} delay={i * 0.08}>
               <p className="text-3xl font-medium tracking-tight">{n}</p>
               <p className="mt-1 text-xs text-mute">{l}</p>

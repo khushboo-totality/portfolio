@@ -33,6 +33,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <FadeUp delay={0.3} className="mt-8 max-w-2xl font-serif text-2xl italic text-mute md:text-3xl">
           {p.summary}
         </FadeUp>
+        {p.url && (
+          <FadeUp delay={0.4} className="mt-8">
+            <a href={p.url} target="_blank" rel="noopener noreferrer" data-cursor="Visit" className="inline-block rounded-full bg-ink px-5 py-2.5 text-sm text-paper ring-1 ring-ink transition-colors hover:bg-paper hover:text-ink">
+              Visit live site ↗
+            </a>
+          </FadeUp>
+        )}
       </section>
 
       <FadeUp className="px-4 md:px-10">
