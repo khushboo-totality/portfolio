@@ -4,6 +4,9 @@ import { projects } from "@/lib/data";
 import Cover from "@/components/Cover";
 import { FadeUp, Line, SplitText } from "@/components/Reveal";
 import Contact from "@/components/Contact";
+import MobileDrawer from "@/components/MobileDrawer";
+import Profile from "@/components/Profile";
+import Details from "@/components/Details";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -75,6 +78,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </Link>
 
       <Contact />
+
+      {/* Mobile only: same floating Profile tab + drawer as the home page. */}
+      <MobileDrawer className="lg:hidden">
+        <Profile />
+        <Details />
+      </MobileDrawer>
     </main>
   );
 }

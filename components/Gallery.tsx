@@ -90,10 +90,10 @@ function TileCard({ tile, delay }: { tile: Tile; delay: number }) {
           </div>
         </div>
       )}
-      {project && (
+      {/* {project && (
         // Whole card opens the case study; caption links below sit above it.
         <Link href={`/work/${project.slug}`} data-cursor="View" aria-label={`${project.title} case study`} className="absolute inset-0 z-10" />
-      )}
+      )} */}
       {project && (
         // Caption hidden until hover on pointer devices; always shown on touch.
         <div className="pointer-events-none absolute inset-0 z-20 transition-opacity duration-500 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100">

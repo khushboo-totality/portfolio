@@ -2,11 +2,13 @@
 import { createContext, useContext, useEffect, useRef, useState, type RefObject } from "react";
 import Lenis from "lenis";
 import { motion, useScroll, useSpring } from "framer-motion";
+import MobileDrawer from "./MobileDrawer";
 
 /**
  * Desktop (≥1024px): two panes, each its own scroll container, so the wheel
  * scrolls whichever pane the pointer is over. Each pane gets its own Lenis.
- * Mobile: panes collapse into normal document flow with native scrolling.
+ * Mobile: only the right pane is in the page flow (native scrolling); the left
+ * pane is a full-screen drawer that slides in from the right.
  */
 type Ctx = { desktop: boolean; rightPane: RefObject<HTMLElement> };
 const SplitCtx = createContext<Ctx | null>(null);
@@ -52,9 +54,7 @@ function PaneProgress({ pane }: { pane: RefObject<HTMLElement> }) {
   );
 }
 
-export default function SplitLayout({
-  left, right, mobileAfter,
-}: { left: React.ReactNode; right: React.ReactNode; mobileAfter: React.ReactNode }) {
+export default function SplitLayout({ left, right }: { left: React.ReactNode; right: React.ReactNode }) {
   const desktop = useDesktop();
   const leftRef = useRef<HTMLElement>(null);
   const rightRef = useRef<HTMLElement>(null);
@@ -64,19 +64,20 @@ export default function SplitLayout({
   return (
     <SplitCtx.Provider value={{ desktop, rightPane: rightRef }}>
       <div className="lg:flex lg:h-[100dvh] lg:overflow-hidden">
-        <div className="relative lg:w-[clamp(380px,33vw,520px)] lg:shrink-0">
-          <PaneProgress pane={leftRef} />
-          <aside ref={leftRef} className="lg:h-full lg:overflow-y-auto lg:overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <div>{left}</div>
-          </aside>
-        </div>
+        {/* Mobile: the left pane is a drawer opened from the floating Profile tab. */}
+        <MobileDrawer
+          asideRef={leftRef}
+          before={<PaneProgress pane={leftRef} />}
+          className="lg:w-[clamp(380px,33vw,520px)] lg:shrink-0"
+        >
+          {left}
+        </MobileDrawer>
         <div className="relative lg:flex-1">
           <PaneProgress pane={rightRef} />
           <main ref={rightRef} className="lg:h-full lg:overflow-y-auto lg:overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <div>{right}</div>
           </main>
         </div>
-        <div className="lg:hidden">{mobileAfter}</div>
       </div>
     </SplitCtx.Provider>
   );

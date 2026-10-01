@@ -1,4 +1,4 @@
-import { experience, services, site } from "@/lib/data";
+import { education, experience, openTo, products, services, site, stackGroups } from "@/lib/data";
 import { FadeUp, Line } from "./Reveal";
 import RollLink from "./RollLink";
 import LocalTime from "./LocalTime";
@@ -14,7 +14,17 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
   );
 }
 
-/** Rest of the left pane: about, services, experience, contact. */
+function Chips({ items, className = "" }: { items: string[]; className?: string }) {
+  return (
+    <ul className={`flex flex-wrap gap-1.5 ${className}`}>
+      {items.map((t) => (
+        <li key={t} className="rounded-full border border-line px-2.5 py-1 text-xs text-ink">{t}</li>
+      ))}
+    </ul>
+  );
+}
+
+/** Rest of the left pane: about, services, process, experience, products, stack, education, contact. */
 export default function Details() {
   return (
     <div>
@@ -27,6 +37,15 @@ export default function Details() {
             <FadeUp key={l} delay={i * 0.08}>
               <p className="text-3xl font-medium tracking-tight">{n}</p>
               <p className="mt-1 text-xs text-mute">{l}</p>
+            </FadeUp>
+          ))}
+        </div>
+        <div className="mt-8 grid gap-3 sm:grid-cols-2">
+          {openTo.map((o, i) => (
+            <FadeUp key={o.title} delay={i * 0.08} className="rounded-xl border border-line p-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-green-400 font-semibold">Open to</p>
+              <p className="mt-2 font-medium">{o.title}</p>
+              <p className="mt-1 text-sm text-mute">{o.text}</p>
             </FadeUp>
           ))}
         </div>
@@ -54,18 +73,44 @@ export default function Details() {
         <ul>
           {experience.map((e, i) => (
             <FadeUp key={i} delay={i * 0.05}>
-              <li className="flex items-baseline justify-between gap-4 border-b border-line py-3.5 text-sm">
-                <span><span className="font-medium">{e.role}</span> <span className="text-mute">· {e.company}</span></span>
-                <span className="shrink-0 tabular-nums text-mute">{e.period}</span>
+              <li className="border-b border-line text-sm">
+                {/* Tap a role to expand its highlights; the current role starts open. */}
+                <details className="group" open={i === 0}>
+                  <summary className="flex cursor-pointer list-none items-baseline justify-between gap-4 py-3.5 [&::-webkit-details-marker]:hidden">
+                    <span><span className="font-medium">{e.role}</span> <span className="text-mute">· {e.company}</span></span>
+                    <span className="flex shrink-0 items-baseline gap-2 tabular-nums text-mute">
+                      {e.period}
+                      <span className="inline-block transition-transform group-open:text-lg duration-300 group-open:rotate-45 group-open:text-red-500">+</span>
+                    </span>
+                  </summary>
+                  <ul className="list-disc space-y-1.5 pb-3 pl-5 text-mute">
+                    {e.points.map((p) => <li key={p}>{p}</li>)}
+                  </ul>
+                  <Chips items={e.stack} className="pb-4" />
+                </details>
               </li>
             </FadeUp>
           ))}
         </ul>
       </Block>
 
+      <div className="px-5 md:px-8 lg:px-6"><Line /></div>
+
+      <Block title="Tech stack">
+        <dl className="space-y-5">
+          {stackGroups.map((g, i) => (
+            <FadeUp key={g.label} delay={i * 0.05}>
+              <dt className="text-xs uppercase tracking-[0.2em] text-mute">{g.label}</dt>
+              <dd><Chips items={g.items} className="mt-2" /></dd>
+            </FadeUp>
+          ))}
+        </dl>
+      </Block>
+
+
       <footer className="mx-3 mb-3 mt-6 rounded-2xl bg-ink px-5 py-10 text-paper md:px-8 lg:mx-3 lg:px-6">
         <FadeUp>
-          <p className="text-sm text-paper/50">Have something in mind?</p>
+          <p className="text-sm text-paper/50">Hiring, or have a project in mind?</p>
           <a href={`mailto:${site.email}`} className="group mt-3 inline-block text-3xl font-medium tracking-tight">
             {site.email}
             <span className="block h-px origin-left scale-x-0 bg-paper transition-transform duration-500 group-hover:scale-x-100" />

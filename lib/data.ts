@@ -9,32 +9,35 @@ export const site = {
   timezone: "Asia/Kolkata",
   email: "yadavkhushboo7653@gmail.com",
   intro:
-    "Full Stack Software Developer with 4+ years of experience building scalable web applications, PWAs, fintech platforms and real-time systems.",
-  // Hero headline, rendered as three lines (the middle one in italic serif).
+    "Full Stack Software Developer with 3+ years of experience building scalable web applications, PWAs, fintech platforms and real-time systems.",
+  // Hero headline in three parts — the middle one is highlighted (italic serif).
   headline: [
-    "I build scalable web apps and progressive web apps",
-    "— fintech platforms, real-time dashboards and custom CMSs —",
-    "with a focus on performance and polish.",
+    "I’m a full-stack developer who turns ideas into",
+    "polished, high-performance digital products",
+    "— from thoughtful interfaces to APIs, databases, and production systems.",
   ],
   about:
-    "I'm a full stack developer in Mumbai with a strong background in fintech — loan management, loan origination and collection platforms — plus logistics and enterprise apps. I currently lead a team of developers at Totality Solutions, shipping client websites and web apps on React, Node.js and AWS.",
-  stats: [
-    ["4+", "years building"],
+  "I’m a developer with 3+ years of experience building websites and digital products across different industries and teams. I work mainly with React and Next.js, turning designs and ideas into polished, responsive, high-performance experiences while also working across APIs, databases, CMS platforms, cloud infrastructure, and production systems. I enjoy solving real-world problems, exploring new technologies, and constantly finding better ways to build for the web.",  stats: [
+    ["3+", "years building"],
     ["10+", "sites & apps shipped"],
     ["4", "developers mentored"],
   ],
   socials: [
-    { label: "GitHub", href: "https://github.com/" },
-    { label: "LinkedIn", href: "https://linkedin.com/" },
+    { label: "GitHub", href: "https://github.com/yadav-khush" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/yadav-khush" },
   ],
 };
 
-export const skills = [
-  "React.js",
+  export const skills = [
+    "React.js",
+  "Next.js",
+  "TypeScript",
+  "JavaScript",
+  "HTML5",
+  "CSS3",
   "Node.js",
   "Express.js",
   "Redux",
-  "Zustand",
   "TailwindCSS",
   "PostgreSQL",
   "MongoDB",
@@ -42,6 +45,9 @@ export const skills = [
   "Supabase",
   "AWS",
   "WebSocket",
+  "REST APIs",
+  "Git & GitHub",
+  "CI/CD",
 ];
 
 export type Project = {
@@ -95,29 +101,118 @@ export const projects: Project[] = [
 
 export const services = [
   {
-    title: "Full-Stack Web Apps",
-    text: "MERN-stack websites, web apps and PWAs with clean MVC architecture, REST APIs and JWT auth.",
+    title: "Modern Web Development",
+    text: "React and Next.js websites and web apps focused on performance, responsiveness, scalability, and polished user experiences.",
   },
   {
-    title: "Fintech Platforms",
-    text: "LMS, LOS and collection dashboards, plus Account Aggregator, banking and Demat API integrations.",
+    title: "UI & Interactive Experiences",
+    text: "Turning designs into refined interfaces with smooth animations, micro-interactions, responsive layouts, and strong attention to visual detail.",
   },
   {
-    title: "Real-time Systems",
-    text: "WebSocket and Socket.io features, live tracking and geospatial dashboards that handle thousands of updates.",
+    title: "Full-Stack Development",
+    text: "Frontend, APIs, databases, authentication, forms, CMS integrations, and backend functionality for complete web solutions.",
   },
   {
-    title: "Cloud & Custom CMS",
-    text: "AWS EC2, Lambda and S3 or Supabase deployments, and CMSs that let non-technical teams manage content.",
+    title: "Cloud & Production",
+    text: "Deploying and optimizing production websites with Vercel, AWS, S3, CloudFront, CDNs, and performance-focused infrastructure.",
   },
 ];
 
+// Each role expands to show `points` and `stack`.
 export const experience = [
-  { company: "Totality Solutions", role: "Full Stack Developer", period: "2025 — Now" },
-  { company: "Networth Tracker Solutions", role: "Full Stack Software Developer", period: "2024 — 2025" },
-  { company: "GOFINTECH", role: "Frontend Developer", period: "2024" },
-  { company: "Agarwal Packers and Movers", role: "Software Developer", period: "2023 — 2024" },
-  { company: "Autowhat", role: "Frontend Developer", period: "2022" },
+  {
+    company: "Totality Solutions",
+    role: "Full Stack Developer",
+    period: "2025 — Now",
+    points: [
+      "Delivered 5+ client-facing websites and web apps within 8 months, on deadline.",
+      "Lead and mentor a team of 4 developers — code reviews, sprint planning and best practices.",
+      "Built a custom CMS so non-technical teams can manage content themselves.",
+      "Manage AWS infrastructure: EC2, Lambda and S3 / Supabase storage.",
+    ],
+    stack: ["Next.js", "AWS", "Supabase", "github", "Sanity", "Figma", "Vercel", "Resend", "Wordpress"  ],
+  },
+  {
+    company: "Networth Tracker Solutions",
+    role: "Full Stack Software Developer",
+    period: "2024 — 2025",
+    points: [
+      "Architected a personal-finance PWA with transaction tracking, goal planning, a financial calendar and KPI dashboards.",
+      "Integrated Account Aggregator, banking and Demat APIs for real-time portfolio insights.",
+      "Added WebSocket live updates, improving responsiveness by 40%.",
+    ],
+    stack: ["React.js", "Node.js", "Firebase", "WebSocket"],
+  },
+  {
+    company: "GOFINTECH",
+    role: "Frontend Developer",
+    period: "2024",
+    points: [
+      "Built Loan Management (LMS) and Loan Origination (LOS) interfaces.",
+      "Created collection dashboards with advanced filtering, sorting and data visualisation.",
+      "Integrated APIs for loan processing, customer onboarding and collection workflows.",
+    ],
+    stack: ["React.js", "Redux", "PrimeReact", "TailwindCSS"],
+  },
+  {
+    company: "Agarwal Packers and Movers",
+    role: "Software Developer",
+    period: "2023 — 2024",
+    points: [
+      "Built logistics dashboards with geospatial visualisation and real-time shipment tracking.",
+      "Maintained multiple shipment tracking systems using Google Maps APIs and MongoDB.",
+      "Deployed MERN apps on AWS EC2 with 99.9% uptime, serving thousands of daily shipments.",
+    ],
+    stack: ["MongoDB", "Express.js", "React.js", "Node.js", "AWS EC2"],
+  }
+];
+
+// Who the site is speaking to: recruiters and clients.
+export const openTo = [
+  {
+    title: "Full-time roles",
+    text: "Full Stack or Frontend positions with React and Next.js, where I can own features end to end and help lead a team.",
+  },
+  {
+    title: "Freelance projects",
+    text: "Business websites, web apps, dashboards and custom CMS builds — from design hand-off to live deployment.",
+  },
+];
+
+
+export const stackGroups = [
+  { label: "Frontend", items: ["React.js", "Next.js", "TypeScript", "Redux", "TailwindCSS", "PrimeReact", "Material UI", "Bootstrap"] },
+  { label: "Backend", items: ["Node.js", "Express.js", "REST APIs", "JWT Authentication", "WebSocket", "Socket.io"] },
+  { label: "Databases", items: ["PostgreSQL", "MongoDB", "Firebase", "Supabase"] },
+  { label: "Cloud & tools", items: ["AWS EC2", "AWS Lambda", "AWS S3", "Git", "JIRA"] },
+  { label: "Domain", items: ["Fintech (LMS / LOS)", "Account Aggregator", "Banking APIs", "Logistics", "Custom CMS"] },
+];
+
+// Product work that isn't a public website, so it isn't in the gallery.
+export const products = [
+  {
+    title: "Networth Tracking App (PWA)",
+    period: "2024 — 2025",
+    text: "Unified personal-finance platform with KPI dashboards, a financial calendar and goal tracking, pulling bank and Demat data through the Account Aggregator framework.",
+    stack: ["React.js", "Node.js", "Firebase"],
+  },
+  {
+    title: "Vision — Non-Banking Exchange Platform",
+    period: "2024",
+    text: "Digital NBFC exchange with real-time data sync and in-app chat. Optimised queries and caching made transaction processing 30% more efficient.",
+    stack: ["MERN", "MongoDB Realm", "Socket.io"],
+  },
+  {
+    title: "APML Real-time Logistics Dashboard",
+    period: "2023",
+    text: "High-performance tracking dashboard with Kepler.gl geospatial visualisation, handling thousands of concurrent tracking updates.",
+    stack: ["React.js", "Kepler.gl"],
+  },
+];
+
+export const education = [
+  { degree: "Master of Computer Science", school: "University of Mumbai, Kalina Campus", period: "2021 — 2023", note: "GPA 8.89 / 10" },
+  { degree: "Bachelor of Computer Science", school: "Ramniranjan Jhunjhunwala College", period: "2018 — 2021", note: "GPA 8.06 / 10" },
 ];
 
 // Right-hand gallery: project cards mixed with standalone art tiles.

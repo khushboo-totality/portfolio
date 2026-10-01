@@ -10,7 +10,8 @@ export default function RollLink({ href, children, className = "", external = fa
   );
   const cls = `group inline-block ${className}`;
   return external ? (
-    <a href={href} target="_blank" rel="noreferrer" className={cls}>{inner}</a>
+    // mailto: must not open a new tab — that just leaves a blank one behind.
+    <a href={href} {...(href.startsWith("mailto:") ? {} : { target: "_blank", rel: "noreferrer" })} className={cls}>{inner}</a>
   ) : (
     <Link href={href} className={cls}>{inner}</Link>
   );

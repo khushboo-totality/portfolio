@@ -5,17 +5,22 @@ import Gallery from "@/components/Gallery";
 
 export default function Home() {
   // Desktop: [Profile + Details] | [Gallery], each pane scrolling on its own.
-  // Mobile: Profile → Gallery → Details in one normal scroll.
+  // Mobile: Profile intro → Gallery in the page; Profile + Details also open as a drawer
+  // from the floating Profile button.
   return (
     <SplitLayout
       left={
         <>
           <Profile />
-          <div className="hidden lg:block"><Details /></div>
+          <Details />
         </>
       }
-      right={<Gallery />}
-      mobileAfter={<Details />}
+      right={
+        <>
+          <div className="lg:hidden"><Profile inline /></div>
+          <Gallery />
+        </>
+      }
     />
   );
 }
