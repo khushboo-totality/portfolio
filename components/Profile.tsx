@@ -26,7 +26,7 @@ export default function Profile({ inline = false }: { inline?: boolean }) {
 
       <FadeUp delay={d + 0.8} y={12} className="mt-8 flex items-center gap-2.5 text-sm text-mute">
         <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink opacity-60" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-60" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
         </span>
         Taking on new projects
