@@ -92,7 +92,7 @@ export default function MobileDrawer({
           ref={asideRef}
           // In-page links (e.g. "See work") close the drawer.
           onClick={(e) => { if ((e.target as HTMLElement).closest('a[href*="#"]')) setOpen(false); }}
-          className="h-full overflow-y-auto overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="h-full overflow-y-auto overflow-x-hidden overscroll-contain[scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           <div>{children}</div>
         </aside>

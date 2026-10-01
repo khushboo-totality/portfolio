@@ -7,7 +7,7 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
   return (
     <section className="px-5 py-12 md:px-8 lg:px-6">
       <FadeUp>
-        <h2 className="mb-7 font-serif text-3xl italic">{title}</h2>
+        <h2 className="mb-7 font-serif text-3xl">{title}</h2>
       </FadeUp>
       {children}
     </section>
@@ -111,7 +111,7 @@ export default function Details() {
       <footer className="mx-3 mb-3 mt-6 rounded-2xl bg-ink px-5 py-10 text-paper md:px-8 lg:mx-3 lg:px-6">
         <FadeUp>
           <p className="text-sm text-paper/50">Hiring, or have a project in mind?</p>
-          <a href={`mailto:${site.email}`} className="group mt-3 inline-block text-3xl font-medium tracking-tight">
+          <a href={`mailto:${site.email}`} className="group mt-3 inline-block max-w-full break-all text-xl font-medium tracking-tight sm:text-2xl">
             {site.email}
             <span className="block h-px origin-left scale-x-0 bg-paper transition-transform duration-500 group-hover:scale-x-100" />
           </a>
